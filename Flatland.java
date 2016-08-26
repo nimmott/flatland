@@ -1,9 +1,9 @@
 // Your Name: Harrison Brace   
 // Your CLID: HAB5597
 // CMPS 360
-// Programming Project : #
-// Due Date :
-// Program Description: (insert description here)
+// Programming Project : # 1
+// Due Date : 6 Septtember 2016
+// Program Description: Simulaiton of bugfarm in flatland
 // Certificate of Authenticity:
 // I certify that the code in the method functions including
 // method function main of this project are entirely my own
@@ -50,18 +50,18 @@ public class Flatland {
             farm.moveBugs();
             farm.fightOrMate();
         }
+        
+        farm.updateStats();
        
 
-
-
-         farm.moveBugs();
-        farm.fightOrMate();
-        farm.moveBugs();
-        farm.fightOrMate();
-        farm.updateStats();
+//        farm.moveBugs();
+//        farm.fightOrMate();
+//        farm.moveBugs();
+//        farm.fightOrMate();
+//        farm.updateStats();
         
         System.out.println("Hello World");
-        // TODO code application logic here
+        
     }
 
 }

@@ -135,7 +135,8 @@ public class BugFarm {
                     }
                 }
                 if (bugList.get(k).getMale() != bugList.get(o).getMale()
-                        && bugList.get(k).equals(bugList.get(o))) {
+                        && bugList.get(k).equals(bugList.get(o))
+                        && bugList.get(k).getIsAlive() && bugList.get(o).getIsAlive()) {
                     Bug temp = new Bug(range);
                     bugList.add(temp);
                     // System.out.println("new bug added");

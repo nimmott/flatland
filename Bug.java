@@ -12,7 +12,7 @@ public class Bug implements Comparable <Bug>{
    private int x_range;
    private int y_range;
    private boolean isMale;
-   private int numEquals;
+  
    
    public Bug (int range){
        isAlive = true;
@@ -60,11 +60,15 @@ public class Bug implements Comparable <Bug>{
        }
        Bug b = (Bug) other;
        if (x_location == b.x_location && y_location == b.y_location)
-       { System.out.println("Bugs are equal");
+       { //System.out.println("Bugs are equal");
            return true;}
        return false;
    }
 public void move (){
+    
+    if (!isAlive){
+        return;
+    }
     
     //Select one of 8 possible directions. 
     //0 indicates the bug stays in place
