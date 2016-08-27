@@ -60,8 +60,7 @@ public class Bug implements Comparable <Bug>{
        }
        Bug b = (Bug) other;
        if (x_location == b.x_location && y_location == b.y_location)
-       { //System.out.println("Bugs are equal");
-           return true;}
+       { return true;}
        return false;
    }
 public void move (){

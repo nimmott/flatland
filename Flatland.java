@@ -52,6 +52,7 @@ public class Flatland {
         }
         
         farm.updateStats();
+        farm.printBugReport(filename);
        
 
 //        farm.moveBugs();

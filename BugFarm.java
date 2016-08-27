@@ -1,5 +1,6 @@
 package flatland;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -21,6 +22,7 @@ public class BugFarm {
     private int aliveFemale;
     private int deadMale;
     private int deadFemale;
+    private int numMoves;
 
     private ArrayList<Bug> bugList;
 
@@ -108,6 +110,7 @@ public class BugFarm {
     }
 
     public void moveBugs() {
+        numMoves ++;
         for (int i = 0; i < bugList.size(); i++) {
             bugList.get(i).move();
         }
@@ -122,15 +125,12 @@ public class BugFarm {
                         && bugList.get(k).getIsAlive() && bugList.get(o).getIsAlive()) {
                     if (bugList.get(k).getMale() == bugList.get(o).getMale()) {
                         //fight
-                        //System.out.println("One bug must die");
                         double temp = Math.random();
                         if (temp >= .5) {
                             bugList.get(k).killBug();
-                            //  System.out.println("Bug killed");
                         }
                         if (temp < .5) {
                             bugList.get(o).killBug();
-                            //   System.out.println("Bug killed");
                         }
                     }
                 }
@@ -139,9 +139,41 @@ public class BugFarm {
                         && bugList.get(k).getIsAlive() && bugList.get(o).getIsAlive()) {
                     Bug temp = new Bug(range);
                     bugList.add(temp);
-                    // System.out.println("new bug added");
                 }
             }
         }
+    }
+    
+    
+    void printBugReport (String filename){
+       java.io.File f = new java.io.File(filename);
+        
+       if (f.exists()) {
+           System.out.println("Error: File already exists");
+           return;
+       }
+       if (!f.exists()){
+            java.io.PrintWriter printer;
+        try {
+        printer = new PrintWriter (f);
+        } catch (Exception e){
+            System.out.println("IOException error" + e);
+            return;
+        }
+        printer.println("Initial number of bugs: " + initNumBugs);
+        printer.println("Initial number of male bugs: " + initNumMales);
+        printer.println(" ");
+        printer.println("---------------------After Simulation________________");
+        printer.println("Number of alive bugs: " + aliveBugs);
+        printer.println("Number of dead bugs: " + deadBugs);
+        printer.println("Number of male bugs: " + maleBugs);
+        printer.println("Number of alive male bugs: " + aliveMale);
+        printer.println("Number of dead male bugs: " + deadMale);
+        printer.println("Number of female bugs: " + femaleBugs);
+        printer.println("Number of alive female bugs: " + aliveFemale);
+        printer.println("Number of dead female bugs: " + deadFemale);
+         
+        }
+        
     }
 }
