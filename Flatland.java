@@ -32,15 +32,16 @@ public class Flatland {
         Scanner scan = new Scanner(System.in);
         System.out.println ("What is the inital number of bugs for the bugfarm?");
         numBugs = scan.nextInt();
-        System.out.println ("What is the range of the bugs int the farm?");
+        System.out.println ("What is the range of the bugs in the farm?");
         System.out.println("Please enter a number from 0 to 99:");
         range = scan.nextInt();
-        System.out.println ("How many times should the bugs move?");
-        numMoves = scan.nextInt();
         if (range < 0 || range > 99){
             System.out.println("Number was outside range");
             return;
         }
+        System.out.println ("How many times should the bugs move?");
+        numMoves = scan.nextInt();
+        
         System.out.println("What is the name of the report file?");
         filename = scan.next();
         BugFarm farm = new BugFarm (numBugs, range);

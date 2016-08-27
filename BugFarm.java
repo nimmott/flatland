@@ -110,7 +110,7 @@ public class BugFarm {
     }
 
     public void moveBugs() {
-        numMoves ++;
+        //  numMoves++;
         for (int i = 0; i < bugList.size(); i++) {
             bugList.get(i).move();
         }
@@ -133,47 +133,48 @@ public class BugFarm {
                             bugList.get(o).killBug();
                         }
                     }
-                }
-                if (bugList.get(k).getMale() != bugList.get(o).getMale()
-                        && bugList.get(k).equals(bugList.get(o))
-                        && bugList.get(k).getIsAlive() && bugList.get(o).getIsAlive()) {
-                    Bug temp = new Bug(range);
-                    bugList.add(temp);
+
+                    if (bugList.get(k).getMale() != bugList.get(o).getMale()) {
+                        //mate
+                        Bug temp = new Bug(range);
+                        bugList.add(temp);
+
+                    }
                 }
             }
         }
     }
-    
-    
-    void printBugReport (String filename){
-       java.io.File f = new java.io.File(filename);
-        
-       if (f.exists()) {
-           System.out.println("Error: File already exists");
-           return;
-       }
-       if (!f.exists()){
-            java.io.PrintWriter printer;
-        try {
-        printer = new PrintWriter (f);
-        } catch (Exception e){
-            System.out.println("IOException error" + e);
+
+    void printBugReport(String filename) {
+        java.io.File f = new java.io.File(filename);
+
+        if (f.exists()) {
+            System.out.println("Error: File already exists");
             return;
         }
-        printer.println("Initial number of bugs: " + initNumBugs);
-        printer.println("Initial number of male bugs: " + initNumMales);
-        printer.println(" ");
-        printer.println("---------------------After Simulation________________");
-        printer.println("Number of alive bugs: " + aliveBugs);
-        printer.println("Number of dead bugs: " + deadBugs);
-        printer.println("Number of male bugs: " + maleBugs);
-        printer.println("Number of alive male bugs: " + aliveMale);
-        printer.println("Number of dead male bugs: " + deadMale);
-        printer.println("Number of female bugs: " + femaleBugs);
-        printer.println("Number of alive female bugs: " + aliveFemale);
-        printer.println("Number of dead female bugs: " + deadFemale);
-         
+        if (!f.exists()) {
+            java.io.PrintWriter printer;
+            try {
+                printer = new PrintWriter(f);
+            } catch (Exception e) {
+                System.out.println("IOException error" + e);
+                return;
+            }
+            printer.println("Initial number of bugs: " + initNumBugs);
+            printer.println("Initial number of male bugs: " + initNumMales);
+            printer.println("Initial number of female bugs: " + initNumFemales);
+            printer.println(" ");
+            printer.println("---------------------After Simulation________________");
+            printer.println("Number of alive bugs: " + aliveBugs);
+            printer.println("Number of dead bugs: " + deadBugs);
+            printer.println("Number of male bugs: " + maleBugs);
+            printer.println("Number of alive male bugs: " + aliveMale);
+            printer.println("Number of dead male bugs: " + deadMale);
+            printer.println("Number of female bugs: " + femaleBugs);
+            printer.println("Number of alive female bugs: " + aliveFemale);
+            printer.println("Number of dead female bugs: " + deadFemale);
+            printer.close();
+
         }
-        
     }
 }
