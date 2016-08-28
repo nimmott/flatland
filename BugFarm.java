@@ -27,7 +27,7 @@ public class BugFarm {
     private ArrayList<Bug> bugList;
 
     public BugFarm() {
-
+        
     }
 
     public BugFarm(int numBugs, int range) {
@@ -54,7 +54,6 @@ public class BugFarm {
                 femaleBugs++;
             }
         }
-
     }
 
     public int getMales() {
@@ -104,9 +103,7 @@ public class BugFarm {
             if (!male && !alive) {
                 deadFemale++;
             }
-
         }
-
     }
 
     public void moveBugs() {
@@ -119,8 +116,8 @@ public class BugFarm {
     public void fightOrMate() {
         int limit = bugList.size();
 
-        for (int k = 0; k < limit; k++) {
-            for (int o = k + 1; o < limit -1 ; o++) {
+        for (int k = 0; k < limit -1; k++) {
+            for (int o = k + 1; o < limit; o++) {
                 if (bugList.get(k).equals(bugList.get(o))
                         && bugList.get(k).getIsAlive() && bugList.get(o).getIsAlive()) {
                     if (bugList.get(k).getMale() == bugList.get(o).getMale()) {
@@ -157,7 +154,7 @@ public class BugFarm {
             try {
                 printer = new PrintWriter(f);
             } catch (Exception e) {
-                System.out.println("IOException error" + e);
+                System.out.println("IOException error " + e);
                 return;
             }
             printer.println("Initial number of bugs: " + initNumBugs);
@@ -167,9 +164,11 @@ public class BugFarm {
             printer.println("---------------------After Simulation________________");
             printer.println("Number of alive bugs: " + aliveBugs);
             printer.println("Number of dead bugs: " + deadBugs);
+            printer.println(" ");
             printer.println("Number of male bugs: " + maleBugs);
             printer.println("Number of alive male bugs: " + aliveMale);
             printer.println("Number of dead male bugs: " + deadMale);
+            printer.println(" ");
             printer.println("Number of female bugs: " + femaleBugs);
             printer.println("Number of alive female bugs: " + aliveFemale);
             printer.println("Number of dead female bugs: " + deadFemale);
