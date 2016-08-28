@@ -45,7 +45,6 @@ public class Flatland {
         System.out.println("What is the name of the report file?");
         filename = scan.next();
         BugFarm farm = new BugFarm (numBugs, range);
- //       farm.updateStats();
  
         for (int i=0;i<numMoves;i++){
             farm.moveBugs();
@@ -55,13 +54,7 @@ public class Flatland {
         farm.updateStats();
         farm.printBugReport(filename);
        
-
-//        farm.moveBugs();
-//        farm.fightOrMate();
-//        farm.moveBugs();
-//        farm.fightOrMate();
-//        farm.updateStats();
-        
+      
         System.out.println("Hello World");
         
     }

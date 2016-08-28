@@ -120,7 +120,7 @@ public class BugFarm {
         int limit = bugList.size();
 
         for (int k = 0; k < limit; k++) {
-            for (int o = k + 1; o < limit; o++) {
+            for (int o = k + 1; o < limit -1 ; o++) {
                 if (bugList.get(k).equals(bugList.get(o))
                         && bugList.get(k).getIsAlive() && bugList.get(o).getIsAlive()) {
                     if (bugList.get(k).getMale() == bugList.get(o).getMale()) {
