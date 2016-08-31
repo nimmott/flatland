@@ -53,9 +53,9 @@ public class Flatland {
         
         farm.updateStats();
         farm.printBugReport(filename);
-       
+    
       
-        System.out.println("Hello World");
+        //System.out.println("Hello World");
         
     }
 
